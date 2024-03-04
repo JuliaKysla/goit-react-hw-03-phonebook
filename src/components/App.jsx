@@ -18,6 +18,22 @@ export class App extends Component {
     filter: '',
   };
 
+
+  componentDidMount() {
+    const contacts = JSON.parse(window.localStorage.getItem('contacts'));
+    if (contacts?.length) {
+      this.setState({ contacts });
+    }
+  }
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      window.localStorage.setItem(
+        'contacts',
+        JSON.stringify(this.state.contacts)
+      );
+    }
+  }
+
   handleChangeFilter = e => {
     this.setState({ filter: e.target.value });
   };
