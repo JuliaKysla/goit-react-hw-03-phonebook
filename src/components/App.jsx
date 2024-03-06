@@ -87,7 +87,7 @@ export class App extends Component {
               onDeleteContact={this.handleDeleteContact}
             />
           ) : (
-            <Notification message="Your contact list is empty!" />
+            <Notification message="Your contact list is empty! Put new name" />
           )}
         </Wrapper>
       </>
